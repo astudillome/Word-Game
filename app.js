@@ -15,7 +15,7 @@ const adverbs = ["a.d.", "a.k.a.", "a.m.", "a_bit", "a_cappella", "a_fortiori", 
 
 const consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"];
 const vowels = ["a", "e", "i", "o", "u"];
-// Use to populate the lettersPlaying array with four random consonants and four vowels
+
 let lettersPlaying = [];
 
 // Use to clear the playing letters so they can be populated again 
@@ -24,13 +24,14 @@ function clearTiles(arr) {
 }
 
 // Populating lettersPlaying array
+// Use to populate the lettersPlaying array with four random consonants and four vowels
 function getLettersToPlay(vowels, consonants) {
     // Make sure lettersPlaying array is empty
     clearTiles(lettersPlaying);
 
-    // push vowels to lettersPlaying array three times making sure there are no duplicates
+    // push vowels to lettersPlaying array two times making sure there are no duplicates
     let t = 1;
-    while (t <= 3) {
+    while (t <= 2) {
         let i = vowels[Math.floor(Math.random() * vowels.length)]
         t++
         if (lettersPlaying.includes(i)) {
@@ -39,9 +40,9 @@ function getLettersToPlay(vowels, consonants) {
             lettersPlaying.push(i);
         }
     }
-    // push consonants to lettersPlaying array four times making sure there are no duplicates
+    // push consonants to lettersPlaying array five times making sure there are no duplicates
     let c = 1;
-    while (c <= 4) {
+    while (c <= 5) {
         let j = consonants[Math.floor(Math.random() * consonants.length)]
         c++
         if (lettersPlaying.includes(j)) {
@@ -52,7 +53,21 @@ function getLettersToPlay(vowels, consonants) {
     }
 }
 
+// Populate tiles with letters from lettersPlaying array based on index
+
+function fillTilesLetters () {
+    document.querySelector('#tile1').innerHTML = lettersPlaying[0];
+    document.querySelector('#tile2').innerHTML = lettersPlaying[1];
+    document.querySelector('#tile3').innerHTML = lettersPlaying[2];
+    document.querySelector('#tile4').innerHTML = lettersPlaying[3];
+    document.querySelector('#tile5').innerHTML = lettersPlaying[4];
+    document.querySelector('#tile6').innerHTML = lettersPlaying[5];
+    document.querySelector('#tile7').innerHTML = lettersPlaying[6];
+}
+
+
 getLettersToPlay(vowels, consonants)
+
 console.log(lettersPlaying)
 
-
+fillTilesLetters ()
