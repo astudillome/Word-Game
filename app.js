@@ -20,15 +20,18 @@ let game = {
     // Player's score
     score: 0,
 
+    // set of letters that issue at the beginning of the game
     lettersPlaying: [],
+    
     
 
     // Shuffle current letters
-    shuffle: function () {
+    shuffleTiles: function () {
         for (let i = this.lettersPlaying.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
-            [this.lettersPlaying[i], this.lettersPlaying[j]] = [this.lettersPlaying[j], this.lettersPlaying[j]];
+            [this.lettersPlaying[i], this.lettersPlaying[j]] = [this.lettersPlaying[j], this.lettersPlaying[i]];
         }
+        this.fillLettersTiles();
     },
 
     // Use to clear the playing letters so they can be populated again 
@@ -38,56 +41,81 @@ let game = {
 
     // Populating lettersPlaying array
     // Use to populate the lettersPlaying array with five random consonants and two vowels
-    getLettersToPlay: function(vowels, consonants) {
+    getLettersToPlay: function (vowels, consonants) {
         // Make sure lettersPlaying array is empty
-    this.clearTiles();
+        this.clearTiles();
+        this.clearCurrentWord();
 
-    // push vowels to lettersPlaying array two times making sure there are no duplicates
-    let t = 1;
-    while (t <= 2) {
-        let i = vowels[Math.floor(Math.random() * vowels.length)]
-        if (this.lettersPlaying.includes(i)) {
-            continue;
-        } else {
-            this.lettersPlaying.push(i);
-        }
-        t++
-    };
+        // push vowels to lettersPlaying array two times making sure there are no duplicates
+        let t = 1;
+        while (t <= 2) {
+            let i = vowels[Math.floor(Math.random() * vowels.length)]
+            if (this.lettersPlaying.includes(i)) {
+                continue;
+            } else {
+                this.lettersPlaying.push(i);
+            }
+            t++
+        };
 
-    // push consonants to lettersPlaying array five times making sure there are no duplicates
-    let c = 1;
-    while (c <= 5) {
-        let j = consonants[Math.floor(Math.random() * consonants.length)]
-        if (this.lettersPlaying.includes(j)) {
-            continue;
-        } else {
-            this.lettersPlaying.push(j);
+        // push consonants to lettersPlaying array five times making sure there are no duplicates
+        let c = 1;
+        while (c <= 5) {
+            let j = consonants[Math.floor(Math.random() * consonants.length)]
+            if (this.lettersPlaying.includes(j)) {
+                continue;
+            } else {
+                this.lettersPlaying.push(j);
+            }
+            c++
         }
-        c++
-    }
-    // Populate tiles with lettersPalying array
-    this.fillLettersTiles();
+        // Populate tiles with lettersPalying array
+        this.fillLettersTiles();
     },
 
     // Populate tiles with letters from lettersPlaying array based on index
     fillLettersTiles: function () {
-    document.querySelector('#tile1').innerHTML = this.lettersPlaying[0];
-    document.querySelector('#tile2').innerHTML = this.lettersPlaying[1];
-    document.querySelector('#tile3').innerHTML = this.lettersPlaying[2];
-    document.querySelector('#tile4').innerHTML = this.lettersPlaying[3];
-    document.querySelector('#tile5').innerHTML = this.lettersPlaying[4];
-    document.querySelector('#tile6').innerHTML = this.lettersPlaying[5];
-    document.querySelector('#tile7').innerHTML = this.lettersPlaying[6];
-    }
+        document.querySelector('#tile1').innerText = this.lettersPlaying[0];
+        document.querySelector('#tile2').innerText = this.lettersPlaying[1];
+        document.querySelector('#tile3').innerText = this.lettersPlaying[2];
+        document.querySelector('#tile4').innerText = this.lettersPlaying[3];
+        document.querySelector('#tile5').innerText = this.lettersPlaying[4];
+        document.querySelector('#tile6').innerText = this.lettersPlaying[5];
+        document.querySelector('#tile7').innerText = this.lettersPlaying[6];
+    },
 
+    // clears the current word being spelled or last word that was spelled
+    clearCurrentWord: function () {
+        document.querySelector("#current-word").innerText = "";
+        this.currentWord = [];
+    },
+
+    // add selected letter to the current word being spelled
+
+    currentWord: "",
+
+    getCurrentWord: function (e) {
+        this.currentWord += e.target.innerText
+        console.log(this.currentWord);
+        document.querySelector("#current-word").innerText = this.currentWord;
+    },
+
+    undoLastMove: function () {
+        this.currentWord = this.currentWord.slice(0,-1)
+        console.log(this.currentWord);
+        document.querySelector("#current-word").innerText = this.currentWord;
+
+    }
 
 
 }
 
 
 document.querySelector("#begin").addEventListener("click", () => game.getLettersToPlay(vowels, consonants))
+document.querySelector('#shuffle').addEventListener('click', () => game.shuffleTiles())
+document.querySelectorAll('.letter-tile').forEach(item => {
+    item.addEventListener('click', (e) => game.getCurrentWord(e))
+})
+document.querySelector('#clear').addEventListener('click', () => game.clearCurrentWord())
+document.querySelector('#undo').addEventListener('click', () => game.undoLastMove())
 
-
-// game.getLettersToPlay(vowels, consonants)
-
-console.log(game.lettersPlaying)
