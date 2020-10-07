@@ -19,6 +19,12 @@ body {
     justify-content: space-around;
     align-items: center;
 }
+
+.game-rules {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .tiles {
     display: flex;
     flex-direction: row;
@@ -52,7 +58,7 @@ body {
     height: 25px;
 }
 
-ul > li {
+.words-found {
     list-style-type: none;
 }
 
