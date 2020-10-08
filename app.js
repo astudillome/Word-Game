@@ -16,8 +16,10 @@ const adverbs = ["a.d.", "a.k.a.", "a.m.", "a_bit", "a_cappella", "a_fortiori", 
 const consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"];
 const vowels = ["a", "e", "i", "o", "u"];
 const allWords = nouns.concat(verbs, adverbs, adjectives);
-const wordsFoundList = document.querySelector('#words-found');
-let listItem = document.createElement('li');
+let wordsFound = document.querySelector('.words-found');
+
+let wordsFoundList = document.querySelectorAll("ul.words-found > li");
+
 
 
 let game = {
@@ -26,24 +28,11 @@ let game = {
 
     // set of letters that issue at the beginning of the game
     lettersPlaying: [],
-    
+
     // current word that player is spelling
     currentWord: "",
 
-    // Shuffle current letters
-    shuffleTiles: function () {
-        for (let i = this.lettersPlaying.length - 1; i > 0; i--) {
-            let j = Math.floor(Math.random() * (i + 1));
-            [this.lettersPlaying[i], this.lettersPlaying[j]] = [this.lettersPlaying[j], this.lettersPlaying[i]];
-        }
-        this.fillLettersTiles();
-    },
-
-    // Use to clear the playing letters so they can be populated again 
-    clearTiles: function () {
-        this.lettersPlaying.splice(0, this.lettersPlaying.length);
-    },
-
+    
     // Populating lettersPlaying array
     // Use to populate the lettersPlaying array with five random consonants and two vowels
     getLettersToPlay: function (vowels, consonants) {
@@ -91,8 +80,24 @@ let game = {
         document.querySelector('#tile7').innerText = this.lettersPlaying[6];
     },
 
+    // Shuffle current letters
+    shuffleTiles: function () {
+        for (let i = this.lettersPlaying.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [this.lettersPlaying[i], this.lettersPlaying[j]] = [this.lettersPlaying[j], this.lettersPlaying[i]];
+        }
+        this.fillLettersTiles();
+    },
+
+    // Use to clear the playing letters so they can be populated again 
+    clearTiles: function () {
+        document.querySelector(".result").innerText = "";
+        this.lettersPlaying.splice(0, this.lettersPlaying.length);
+    },
+
     // add selected letter to the current word being spelled
     getCurrentWord: function (e) {
+        document.querySelector(".result").innerText = "";
         this.currentWord += e.target.innerText;
         document.querySelector("#current-word").innerText = this.currentWord;
     },
@@ -105,45 +110,62 @@ let game = {
 
     // this allows the user to undo moves one by one
     undoLastMove: function () {
-        this.currentWord = this.currentWord.slice(0,-1);
+        this.currentWord = this.currentWord.slice(0, -1);
         document.querySelector("#current-word").innerText = this.currentWord;
     },
 
-    
     // check if word entered is in the lexicon arrays
     // if word is in dictionary then a correct alert/pop up appears and the word is added to the found words list, score is updated
     // if it is not correct, an alert informs player that it is incorrect and the player is asked to try again
     checkWordSubmitted: function () {
-        console.log(this.currentWord);
-                  
-            for (let i = 0; i < allWords.length; i++){
-                if(allWords[i] === this.currentWord){
-                    this.addToWordsFoundList();
-                    this.updateScore();
-                    alert("Correct!");
-                } 
-            } 
-            // if(listItem.innerHTML !== this.currentWord){
-            //     alert("Word nof found. Try again!");
-            //     this.clearCurrentWord();
-            // }
-      
+        if(this.currentWord.length < 3){
+            document.querySelector(".result").innerText !== "Word must be at least three letters. Try again."
+
+        } else if(wordsFoundList.length > 0){
+            this.isWordInWordsFoundList();
+
+        } else if(document.querySelector(".result").innerText !== "Word already found. Try again."){
+            this.wordFound();
+            
+        } else if (document.querySelector(".result").innerText !== "Correct!") {
+            document.querySelector(".result").innerText = "Word not found. Try again.";
+        }
+        
+
         this.clearCurrentWord();
     },
 
-    // check if word is in the words found list
-    isWordInWordsFound: function (){
-        let wordList = document.querySelectorAll("ul.words-found > li".outerText);
-        console.log(wordList);
+    // adds correct word to words found list
+    addToWordsFound: function () {
+        let listItem = document.createElement('li')
+        listItem.innerHTML = this.currentWord;
+        wordsFound.appendChild(listItem);
     },
 
-    // adds correct word to words found list
-    addToWordsFoundList: function () {
-        let wordItem = document.createElement('li')
-        wordItem.innerHTML = this.currentWord;
-        wordsFoundList.appendChild(wordItem);
+    // check if word is in the words found list
+    isWordInWordsFoundList: function () {
+        let wordsFoundList = document.querySelectorAll("ul.words-found > li");
+        for (let i = 0; i < wordsFoundList.length; i++) {
+            if (this.currentWord === wordsFoundList[i].innerText) {
+                document.querySelector(".result").innerText = "Word already found. Try again.";
+                this.clearCurrentWord();
+            }
+        }
+        
     },
-    
+
+    // checks for correct spelling of word
+    wordFound: function (){
+        for (let i = 0; i < allWords.length; i++) {
+            if (allWords[i] === this.currentWord) {
+                document.querySelector(".result").innerText = "Correct!";
+                this.addToWordsFound();
+                this.updateScore();
+                this.clearCurrentWord();
+            }
+        }
+    },          
+
     // updates score
     updateScore: function () {
         this.score += this.currentWord.length;
@@ -158,13 +180,12 @@ let game = {
 
     // reset and clear word found list
     clearWordsFoundList: function () {
-        wordsFoundList.innerHTML = "";
+        wordsFound.innerHTML = "";
     }
-
 
 }
 
-game.isWordInWordsFound();
+
 
 
 document.querySelector("#begin").addEventListener("click", () => game.getLettersToPlay(vowels, consonants))
