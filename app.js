@@ -40,7 +40,7 @@ let game = {
         this.clearTiles();
         this.clearCurrentWord();
         this.resetScore();
-        this.clearWordsFoundList();
+        this.clearWordsFound();
 
         // push vowels to lettersPlaying array two times making sure there are no duplicates
         let t = 1;
@@ -119,7 +119,7 @@ let game = {
     // if it is not correct, an alert informs player that it is incorrect and the player is asked to try again
     checkWordSubmitted: function () {
         if(this.currentWord.length < 3){
-            document.querySelector(".result").innerText !== "Word must be at least three letters. Try again."
+            document.querySelector(".result").innerText = "Word must be at least three letters. Try again."
 
         } else if(wordsFoundList.length > 0){
             this.isWordInWordsFoundList();
@@ -130,8 +130,6 @@ let game = {
         } else if (document.querySelector(".result").innerText !== "Correct!") {
             document.querySelector(".result").innerText = "Word not found. Try again.";
         }
-        
-
         this.clearCurrentWord();
     },
 
@@ -178,8 +176,8 @@ let game = {
         this.updateScore();
     },
 
-    // reset and clear word found list
-    clearWordsFoundList: function () {
+    // reset and clear words alredy found 
+    clearWordsFound: function () {
         wordsFound.innerHTML = "";
     }
 
