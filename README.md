@@ -13,8 +13,13 @@ This app is inspired by the Spelling Bee game offered by the New York Times. I w
 
 ## User Stories & Wireframes
 In the planning of this app I used the following:
-    - Mac OS Pages for detailing user story. 
-    - Numbers 
+    - Mac OS Pages for detailing user story 
+    - Mac OS Numbers used to normalize dictionary data
+    - List of 3000 most common used words in English https://www.ef.edu/english-resources/english-vocabulary/top-3000-words/
+    - Mr. Data Convverter to convert Numbers data to Javascript array https://shancarter.github.io/mr-data-converter/
+    - VS Code to develop app
+    - Git and Github for version control
+    - This site was built using [GitHub Pages](https://pages.github.com/).
 
 ### High-level user stories.
 - The game consists of seven tiles that have randomly selected letters (five consonants and two vowels). 
