@@ -1,6 +1,22 @@
-# Word-Game 
+# Word Game 
+This is a word spelling game where the user gets points for correctly spelling and finding words.
 
-# User Story
+## Motivation
+This app is inspired by the Spelling Bee game offered by the New York Times. I wanted to see how the functionality worked and if I can do a similar game. 
+
+## Screenshots
+![Image of Game]
+(Images/WordGAme_app1.png)
+
+![Image of Game Controls]
+(Images/WordGAme_app2.png)
+
+## User Stories & Wireframes
+In the planning of this app I used the following:
+    - Mac OS Pages for detailing user story. 
+    - Numbers 
+
+### High-level user stories.
 - The game consists of seven tiles that have randomly selected letters (five consonants and two vowels). 
 
 - The user first clicks Begin. Then the user clicks on a tile to select it for spelling a word, which populates a field under the available letters tiles. This becomes the current word at play.
@@ -16,3 +32,18 @@
 - After increments of 10 words in the words found list, the user gets an alert of how many words were found and choices of whether to continue playing, reset the game or quit.
 
 - If the user chooses to continue playing the word field is cleared,  if the user chooses to reset the game is reloaded, or if the user chooses to quit an alert will state "Thanks for playing. You found ## of words and your score is ##!”
+
+
+### Image files of wireframes
+![Image of Game]
+(Images/MAstudillo_Proj1_Wireframe.png)
+
+## Technologies & Code Snippets
+list of technologies
+screen captures of your code
+
+## Credits
+The data used in this app is provided royalty free from https://wordnet.princeton.edu. I used MDN at https://developer.mozilla.org/en-US/, Stackoverflow at https://stackoverflow.com and other online tutorials to develop and understand code.
+
+## Future development
+The app ideally should utilize an API. I would like to implement an API like Datamuse http://www.datamuse.com/api/. Datamuse searches for words based on parameters, one of which is the spelling of the word. 

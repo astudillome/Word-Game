@@ -18,10 +18,6 @@ const vowels = ["a", "e", "i", "o", "u"];
 const allWords = nouns.concat(verbs, adverbs, adjectives);
 let wordsFound = document.querySelector('.words-found');
 
-let wordsFoundList = document.querySelectorAll("ul.words-found > li");
-
-
-
 let game = {
     // Player's score
     score: 0,
@@ -32,6 +28,9 @@ let game = {
     // current word that player is spelling
     currentWord: "",
 
+    // words found list
+    wordsFoundList: [],
+
     
     // Populating lettersPlaying array
     // Use to populate the lettersPlaying array with five random consonants and two vowels
@@ -41,6 +40,7 @@ let game = {
         this.clearCurrentWord();
         this.resetScore();
         this.clearWordsFound();
+        
 
         // push vowels to lettersPlaying array two times making sure there are no duplicates
         let t = 1;
@@ -118,16 +118,19 @@ let game = {
     // if word is in dictionary then a correct alert/pop up appears and the word is added to the found words list, score is updated
     // if it is not correct, an alert informs player that it is incorrect and the player is asked to try again
     checkWordSubmitted: function () {
+        
+        console.log(this.wordsFoundList);
+
         if(this.currentWord.length < 3){
             document.querySelector(".result").innerText = "Word must be at least three letters. Try again."
 
-        } else if(wordsFoundList.length > 0){
+        } else if(this.wordsFoundList.length > 0){
             this.isWordInWordsFoundList();
 
         } else if(document.querySelector(".result").innerText !== "Word already found. Try again."){
             this.wordFound();
             
-        } else if (document.querySelector(".result").innerText !== "Correct!") {
+        } else if (!this.wordsFoundList.includes(this.currentWord));{
             document.querySelector(".result").innerText = "Word not found. Try again.";
         }
         this.clearCurrentWord();
@@ -135,16 +138,17 @@ let game = {
 
     // adds correct word to words found list
     addToWordsFound: function () {
-        let listItem = document.createElement('li')
+        this.wordsFoundList.push(this.currentWord);
+        let listItem = document.createElement('li');
         listItem.innerHTML = this.currentWord;
         wordsFound.appendChild(listItem);
     },
 
     // check if word is in the words found list
     isWordInWordsFoundList: function () {
-        let wordsFoundList = document.querySelectorAll("ul.words-found > li");
-        for (let i = 0; i < wordsFoundList.length; i++) {
-            if (this.currentWord === wordsFoundList[i].innerText) {
+        
+        for (let i = 0; i < this.wordsFoundList.length; i++) {
+            if (this.currentWord === this.wordsFoundList[i]) {
                 document.querySelector(".result").innerText = "Word already found. Try again.";
                 this.clearCurrentWord();
             }
@@ -179,12 +183,13 @@ let game = {
     // reset and clear words alredy found 
     clearWordsFound: function () {
         wordsFound.innerHTML = "";
+        this.wordsFoundList= [];
     }
 
 }
 
 
-
+console.log(game.wordsFoundList);
 
 document.querySelector("#begin").addEventListener("click", () => game.getLettersToPlay(vowels, consonants))
 document.querySelector('#shuffle').addEventListener('click', () => game.shuffleTiles())
