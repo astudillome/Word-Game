@@ -129,7 +129,6 @@ let game = {
 
         } else if(document.querySelector(".result").innerText !== "Word already found. Try again."){
             this.wordFound();
-            
         } else if (!this.wordsFoundList.includes(this.currentWord));{
             document.querySelector(".result").innerText = "Word not found. Try again.";
         }
@@ -142,18 +141,17 @@ let game = {
         let listItem = document.createElement('li');
         listItem.innerHTML = this.currentWord;
         wordsFound.appendChild(listItem);
+        console.log(this.wordsFoundList);
     },
 
     // check if word is in the words found list
     isWordInWordsFoundList: function () {
-        
         for (let i = 0; i < this.wordsFoundList.length; i++) {
             if (this.currentWord === this.wordsFoundList[i]) {
                 document.querySelector(".result").innerText = "Word already found. Try again.";
                 this.clearCurrentWord();
             }
         }
-        
     },
 
     // checks for correct spelling of word
@@ -187,9 +185,6 @@ let game = {
     }
 
 }
-
-
-console.log(game.wordsFoundList);
 
 document.querySelector("#begin").addEventListener("click", () => game.getLettersToPlay(vowels, consonants))
 document.querySelector('#shuffle').addEventListener('click', () => game.shuffleTiles())
