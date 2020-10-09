@@ -33,17 +33,15 @@ This app is inspired by the Spelling Bee game offered by the New York Times. I w
 ![Image of Game](Images/MAstudillo_Proj1_Wireframe.png)
 
 ## Technologies & Code Snippets
-list of technologies
-    - Mac OS Pages for detailing user story 
-    - Mac OS Numbers used to normalize dictionary data
-    - List of 3000 most common used words in English https://www.ef.edu/english-resources/english-vocabulary/top-3000-words/
-    - List of verbs, nouns, pronouns and adjectives provided by https://www.talkenglish.com
-    - Mr. Data Convverter to convert Numbers data to Javascript array https://shancarter.github.io/mr-data-converter/
-    - VS Code to develop app
-    - Git and Github for version control
-    - This site was built using [GitHub Pages](https://pages.github.com/).
-
-screen captures of your code
+list of technologies:
+- Mac OS Pages for detailing user story 
+- Mac OS Numbers used to normalize dictionary data
+- List of 3000 most common used words in English https://www.ef.edu/english-resources/english-vocabulary/top-3000-words/
+- List of verbs, nouns, pronouns and adjectives provided by https://www.talkenglish.com
+- Mr. Data Convverter to convert Numbers data to Javascript array https://shancarter.github.io/mr-data-converter/
+- VS Code to develop app
+- Git and Github for version control
+- This site was built using [GitHub Pages](https://pages.github.com/)
 
 ## Credits
 The data used in this app is provided royalty free from https://www.ef.edu/english-resources/english-vocabulary/top-3000-words/ and https://www.talkenglish.com. I used MDN at https://developer.mozilla.org/en-US/, Stackoverflow at https://stackoverflow.com and other online tutorials to develop and understand code.
