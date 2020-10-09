@@ -58,10 +58,14 @@ body {
     height: 25px;
 }
 
+
 .words-found {
     list-style-type: none;
 }
 
+h2 {
+    display: flex;
+}
 .current_word {
     display: flex;
     justify-content: space-around;
