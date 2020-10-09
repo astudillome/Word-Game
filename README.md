@@ -5,11 +5,9 @@ This is a word spelling game where the user gets points for correctly spelling a
 This app is inspired by the Spelling Bee game offered by the New York Times. I wanted to see how the functionality worked and if I can do a similar game. 
 
 ## Screenshots
-![Image of Game]
-(Images/WordGAme_app1.png)
+![Image of Game](Images/WordGAme_app1.png)
 
-![Image of Game Controls]
-(Images/WordGAme_app2.png)
+![Image of Game Controls](Images/WordGAme_app2.png)
 
 ## User Stories & Wireframes
 
@@ -32,8 +30,7 @@ This app is inspired by the Spelling Bee game offered by the New York Times. I w
 
 
 ### Image files of wireframes
-![Image of Game]
-(Images/MAstudillo_Proj1_Wireframe.png)
+![Image of Game](Images/MAstudillo_Proj1_Wireframe.png)
 
 ## Technologies & Code Snippets
 list of technologies
