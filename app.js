@@ -151,7 +151,7 @@ let game = {
         } else if (this.currentWord.length >= 3) {
             this.wordFound();
 
-        } else {
+        } else if (this.currentWord.length >= 3){
             document.querySelector(".result").innerText = "Word not found. Try again.";
          }
         this.clearCurrentWord();
