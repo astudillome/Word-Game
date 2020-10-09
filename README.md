@@ -12,14 +12,6 @@ This app is inspired by the Spelling Bee game offered by the New York Times. I w
 (Images/WordGAme_app2.png)
 
 ## User Stories & Wireframes
-In the planning of this app I used the following:
-    - Mac OS Pages for detailing user story 
-    - Mac OS Numbers used to normalize dictionary data
-    - List of 3000 most common used words in English https://www.ef.edu/english-resources/english-vocabulary/top-3000-words/
-    - Mr. Data Convverter to convert Numbers data to Javascript array https://shancarter.github.io/mr-data-converter/
-    - VS Code to develop app
-    - Git and Github for version control
-    - This site was built using [GitHub Pages](https://pages.github.com/).
 
 ### High-level user stories.
 - The game consists of seven tiles that have randomly selected letters (five consonants and two vowels). 
@@ -45,10 +37,19 @@ In the planning of this app I used the following:
 
 ## Technologies & Code Snippets
 list of technologies
+    - Mac OS Pages for detailing user story 
+    - Mac OS Numbers used to normalize dictionary data
+    - List of 3000 most common used words in English https://www.ef.edu/english-resources/english-vocabulary/top-3000-words/
+    - List of verbs, nouns, pronouns and adjectives provided by https://www.talkenglish.com
+    - Mr. Data Convverter to convert Numbers data to Javascript array https://shancarter.github.io/mr-data-converter/
+    - VS Code to develop app
+    - Git and Github for version control
+    - This site was built using [GitHub Pages](https://pages.github.com/).
+
 screen captures of your code
 
 ## Credits
-The data used in this app is provided royalty free from https://wordnet.princeton.edu. I used MDN at https://developer.mozilla.org/en-US/, Stackoverflow at https://stackoverflow.com and other online tutorials to develop and understand code.
+The data used in this app is provided royalty free from https://www.ef.edu/english-resources/english-vocabulary/top-3000-words/ and https://www.talkenglish.com. I used MDN at https://developer.mozilla.org/en-US/, Stackoverflow at https://stackoverflow.com and other online tutorials to develop and understand code.
 
 ## Future development
-The app ideally should utilize an API. I would like to implement an API like Datamuse http://www.datamuse.com/api/. Datamuse searches for words based on parameters, one of which is the spelling of the word. 
+The app ideally should utilize an API. I would like to implement an API like Datamuse http://www.datamuse.com/api/. Datamuse searches for words based on parameters, one of which is the spelling of the word. Also I would like to create the ability to pick a word from the dictionary based on length and then substitute any duplicate letters with other letters. Thus securing that a word can be spelled. Perhaps this app could be developed to help users learn English. 

@@ -112,17 +112,6 @@ let game = {
             }
         }
     },
-    // checks if word is not in the dictionary
-    wordNotFound: function () {
-        for (let i = 0; i < allWords.length; i++) {
-            if (allWords[i] === this.currentWord) {
-            document.querySelector(".result").innerText = "Word not found. Try again."
-            } else {
-            document.querySelector(".result").innerText = "Word not found. Try again."
-            }
-        }
-        
-    },
 
     // adds correct word to words found list
     addToWordsFound: function () {
@@ -162,10 +151,9 @@ let game = {
         } else if (this.currentWord.length >= 3) {
             this.wordFound();
 
-        } else {
-            // document.querySelector(".result").innerText = "Word not found. Try again.";
-            this.wordNotFound();
-        }
+        } else if (document.querySelector(".result").innerText !== "Correct!"){
+            document.querySelector(".result").innerText = "Word not found. Try again.";
+         }
         this.clearCurrentWord();
     },
 
