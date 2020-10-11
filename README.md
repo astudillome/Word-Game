@@ -12,7 +12,7 @@ This app is inspired by the Spelling Bee game offered by the New York Times. I w
 ## User Stories & Wireframes
 
 ### High-level user stories.
-- The game consists of seven tiles that have randomly selected letters (five consonants and two vowels). 
+- The game consists of seven tiles that have randomly selected letters (five consonants and two vowels). Words must be at least two letters long. 
 
 - The user first clicks Begin. Then the user clicks on a tile to select it for spelling a word, which populates a field under the available letters tiles. This becomes the current word at play.
 
@@ -39,16 +39,21 @@ list of technologies:
 - Mac OS Numbers used to normalize dictionary data
 - List of 3000 most common used words in English https://www.ef.edu/english-resources/english-vocabulary/top-3000-words/
 - List of verbs, nouns, pronouns and adjectives provided by https://www.talkenglish.com
+- English word list provided by http://www.gwicks.net/dictionaries.htm
 - Mr. Data Convverter to convert Numbers data to Javascript array https://shancarter.github.io/mr-data-converter/
 - VS Code to develop app
 - Git and Github for version control
 - This site was built using [GitHub Pages](https://pages.github.com/).
 
+![Image of Code](Images/code1.png)
+
+![Image of Code Two](Images/code2.png)
+
 ## Credits
-The data used in this app is provided royalty free from https://www.ef.edu/english-resources/english-vocabulary/top-3000-words/ and https://www.talkenglish.com. I used MDN at https://developer.mozilla.org/en-US/, Stackoverflow at https://stackoverflow.com and other online tutorials to develop and understand code.
+The data used in this app is provided royalty free from https://www.ef.edu/english-resources/english-vocabulary/top-3000-words/ and https://www.talkenglish.com. I used MDN at https://developer.mozilla.org/en-US/, Stackoverflow at https://stackoverflow.com and other online tutorials to develop and understand code. The General Assembly instructors and TAs guidance and assistance are crucial in the success of this app. 
 
 ## Future development
-The check word function needs to be debugged. The app ideally should utilize an API. I would like to implement an API like Datamuse http://www.datamuse.com/api/. Datamuse searches for words based on parameters, one of which is the spelling of the word. Also I would like to create the ability to pick a word from the dictionary based on length and then substitute any duplicate letters with other letters. Thus securing that a word can be spelled. Perhaps this app could be developed to help users learn English. The site needs additional CSS styling and responsive design capability.
+The app ideally should utilize an API. I would like to implement an API like Datamuse http://www.datamuse.com/api/. Datamuse searches for words based on parameters, one of which is the spelling of the word. Also I would like to create the ability to pick a word from the dictionary based on length and then substitute any duplicate letters with other letters. Thus securing that a word can be spelled. Perhaps this app could be developed to help users learn English. The site needs additional CSS styling and responsive design capability.
 
 ## Game Link
 https://github.com/astudillome/Word-Game
