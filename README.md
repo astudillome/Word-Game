@@ -56,4 +56,4 @@ The data used in this app is provided royalty free from https://www.ef.edu/engli
 The app ideally should utilize an API. I would like to implement an API like Datamuse http://www.datamuse.com/api/. Datamuse searches for words based on parameters, one of which is the spelling of the word. Also I would like to create the ability to pick a word from the dictionary based on length and then substitute any duplicate letters with other letters. Thus securing that a word can be spelled. Perhaps this app could be developed to help users learn English. The site needs additional CSS styling and responsive design capability.
 
 ## Game Link
-https://github.com/astudillome/Word-Game
+https://astudillome.github.io/Word-Game/
