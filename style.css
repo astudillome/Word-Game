@@ -8,8 +8,8 @@ body {
 
 .container {
     display: flex;
-    width: 1200px;
-    flex-direction: row;
+   
+    flex-direction: column;
     justify-content: space-around;
 }
 
@@ -33,7 +33,7 @@ body {
     margin: 25px;
 }
 .letter-tile {
-    background-color: rgb(19, 104, 140);
+    background-color: rgb(14, 94, 128);
     text-align: center;
     color: white;
     width: 35px;
@@ -59,9 +59,15 @@ body {
     height: 25px;
 }
 
-
 .words-found {
     list-style-type: none;
+}
+
+.words-found-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 h2 {
